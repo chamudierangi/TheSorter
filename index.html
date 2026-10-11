@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE SORTER</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #0f172a; color: #f8fafc; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 20px; }
+        h1 { font-size: 28px; margin-bottom: 10px; color: #818cf8; font-weight: 700; }
+        #status-message { height: 30px; margin-bottom: 10px; color: #34d399; font-weight: 600; font-size: 18px; opacity: 0; transition: opacity 0.3s; }
+        
+        .control-panel { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: center; background-color: #1e293b; padding: 15px 20px; border-radius: 12px; border: 1px solid #334155; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); }
+        button { background-color: #4f46e5; color: white; border: none; padding: 8px 16px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+        button:hover { background-color: #6366f1; }
+        button:disabled { background-color: #475569; opacity: 0.5; cursor: not-allowed; }
+        
+        select, input[type="text"] { background-color: #0f172a; border: 1px solid #475569; color: #e2e8f0; padding: 8px 12px; border-radius: 8px; outline: none; }
+        select:focus, input[type="text"]:focus { border-color: #818cf8; }
+        
+        #set-array-btn { background-color: #2563eb; }
+        #set-array-btn:hover { background-color: #3b82f6; }
+        #stop-btn { background-color: #e11d48; }
+        #stop-btn:hover { background-color: #f43f5e; }
+
+        .speed-box { display: flex; align-items: center; gap: 8px; color: #94a3b8; font-size: 14px; }
+        
+        #array-container { width: 100%; max-width: 900px; height: 350px; background-color: rgba(30, 41, 59, 0.5); border: 1px solid #334155; border-radius: 12px; display: flex; align-items: flex-end; justify-content: center; padding: 20px; gap: 6px; margin-bottom: 20px; }
+        
+        .bar { width: 35px; background-color: #6366f1; border-top-left-radius: 6px; border-top-right-radius: 6px; display: flex; align-items: flex-end; justify-content: center; color: white; font-size: 11px; font-weight: 600; padding-bottom: 4px; transition: height 0.1s ease, background-color 0.1s ease; }
+
+        .text-display { width: 100%; max-width: 900px; background-color: #1e293b; padding: 15px; border-radius: 12px; border: 1px solid #334155; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.3); }
+        .text-display h3 { font-size: 13px; color: #94a3b8; margin-bottom: 8px; }
+        #array-values-text { color: #a5b4fc; font-family: monospace; font-size: 14px; letter-spacing: 1px; overflow-x: auto; white-space: nowrap; padding: 4px; }
+    </style>
+</head>
+<body>
+
+    <h1>THE SORTER</h1>
+    <p>Visualize and understand sorting algorithms in action!</p>
+
+    <div id="status-message">✨ Array Sorted Successfully!</div>
+
+    <!-- Control Panel -->
+    <div class="control-panel">
+        <button id="generate-btn">Generate New Array</button>
+        
+        <div style="display: flex; gap: 6px; align-items: center;">
+            <input id="custom-input" type="text" placeholder="e.g. 45, 12, 89, 23">
+            <button id="set-array-btn">Set Array</button>
+        </div>
+
+        <select id="algorithm-select">
+            <option value="bubble">Bubble Sort</option>
+            <option value="selection">Selection Sort</option>
+            <option value="insertion">Insertion Sort</option>
+            <option value="merge">Merge Sort</option>
+            <option value="shell">Shell Sort</option>
+        </select>
+
+        <button id="start-btn" style="background-color: #059669;">Start Sorting</button>
+        <button id="stop-btn" disabled>Stop</button>
+        
+        <div class="speed-box">
+            <label>Speed:</label>
+            <input id="speed-slider" type="range" min="10" max="500" value="100">
+        </div>
+    </div>
+
+    <!-- Visualizer Container -->
+    <div id="array-container"></div>
+
+    <!-- Array Elements Text Display -->
+    <div class="text-display">
+        <h3>Current Array Elements:</h3>
+        <div id="array-values-text">[ ]</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

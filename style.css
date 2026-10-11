@@ -1,0 +1,8 @@
+/* Custom scrollbar for array values text */
+#array-values-text::-webkit-scrollbar {
+    height: 6px;
+}
+#array-values-text::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 4px;
+}
