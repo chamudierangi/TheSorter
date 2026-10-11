@@ -6,7 +6,7 @@ An interactive, web-based educational tool designed to help users intuitively un
 
 ---
 
-## 🚀 Key Features
+##  Key Features
 
 * **Multiple Sorting Algorithms:** Support for foundational and advanced sorting techniques:
   * Bubble Sort
@@ -23,7 +23,7 @@ An interactive, web-based educational tool designed to help users intuitively un
 
 ---
 
-## 🛠️ Technology Stack
+##  Technology Stack
 
 * **Frontend Structure:** HTML5
 * **Styling & UI:** Custom CSS3 (Dark-themed glassmorphism interface optimized for readability and modern aesthetics)
